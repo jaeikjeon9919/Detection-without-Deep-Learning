@@ -28,7 +28,6 @@ ctrs, hier = cv2.findContours(im_th.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_
 
 rects = [cv2.boundingRect(ctr) for ctr in ctrs]
 
-digits = []
 for rect in rects:
     leng = int(rect[3] * 1.6)
     pt1 = int(rect[1] + rect[3] // 2 - leng // 2)
@@ -48,10 +47,8 @@ for rect in rects:
         roi = (roi - 0.130925351) / 0.30844852402703143
 
         nbr = clf.predict(np.array(roi))
-        digits.append(nbr)
         cv2.putText(im, str(int(nbr[0])), (rect[0], rect[1]),cv2.FONT_HERSHEY_DUPLEX, 1, (0, 255, 255), 1)
 
-np.savetxt("demo_digits.txt", np.array(digits), fmt="%s")
 cv2.imwrite("demo_output.png", im)
 
 ##
