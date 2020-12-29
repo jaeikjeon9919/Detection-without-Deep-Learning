@@ -1,13 +1,18 @@
 import cv2
 import joblib
 import numpy as np
-import matplotlib.pyplot as plt
+import argparse
+
+parser = argparse.ArgumentParser(description='handwritten digits detection')
+parser.add_argument('--image_path', type=str, action='store', default="sample_image/demo.jpg")
+args = parser.parse_args()
+
 
 clf = joblib.load("digits_cls_normalized.pkl")
 
 dim = (640, 480)
 
-im = cv2.imread("sample_image/demo.jpg")
+im = cv2.imread(args.image_path)
 im = cv2.resize(im, dim, interpolation=cv2.INTER_AREA)
 
 
