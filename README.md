@@ -1,5 +1,5 @@
-# Python Digits Detection
-This is a digits detection project <ins> without deep learning </ins> written in Python that can be used to detect and classify custom handwritten digits .
+# Detection without Deep Learning
+This is a digits detection sample code <ins> without deep learning </ins> written in Python that can be used to detect and classify custom handwritten digits .
 
 # Usage:
 ```shell script
